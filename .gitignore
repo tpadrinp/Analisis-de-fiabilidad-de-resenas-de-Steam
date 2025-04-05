@@ -1,0 +1,22 @@
+# Ignorar carpetas del entorno virtual
+venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Datos (mejor no subir datos sensibles o pesados)
+data/raw/
+data/processed/
+
+# Notebooks temporales
+*.ipynb_checkpoints/
+
+# Archivos de visualización (Power BI, Tableau)
+*.pbix
+*.twb
+*.twbx
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
