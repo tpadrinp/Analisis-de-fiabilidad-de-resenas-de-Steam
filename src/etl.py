@@ -38,4 +38,3 @@ if __name__ == "__main__":
     df_reviews = df_recommendations.merge(df_users, on="user_id", how="left") #Juntamos las recomendaciones con la información de los usuarios para obtener un dataframe de las reseñas.
     load_csv_data(df_games_full, PROCESSED_PATH + "/dataset_games_full.csv")
     load_csv_data(df_reviews, PROCESSED_PATH + "/dataset_reviews.csv")
-    load_csv_data(df_all, PROCESSED_PATH + "/dataset_all.csv")
