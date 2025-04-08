@@ -29,12 +29,14 @@ def load_csv_data(df, path):
 
 # Definimos una función para extraer datos de un archivo CSV
 if __name__ == "__main__":
-    games_md = extract_json_data("games_metadata.json")
-    games = extract_csv_data("games.csv")
-    recommendations = extract_csv_data("recommendations.csv")
-    users = extract_csv_data("users.csv")
-    games_md = transfomr_json(games_md)
-    load_csv_data(games_md, PROCESSED_PATH + "/games_metadata.csv")
-    load_csv_data(games, PROCESSED_PATH + "/games.csv")
-    load_csv_data(recommendations, PROCESSED_PATH + "/recommendations.csv")
-    load_csv_data(users, PROCESSED_PATH + "/users.csv")
+    df_games_md = extract_json_data("games_metadata.json")
+    df_games = extract_csv_data("games.csv")
+    df_recommendations = extract_csv_data("recommendations.csv")
+    df_users = extract_csv_data("users.csv")
+    df_games_md = transfomr_json(df_games_md)
+    df_games_full = df_games_md.merge(df_games, on="app_id", how="left")
+    df_reviews = df_recommendations.merge(df_users, on="user_id", how="left")
+    df_all = pd.merge(df_reviews, df_games_full, on="app_id", how="left")
+    load_csv_data(df_games_full, PROCESSED_PATH + "/dataset_games_full.csv")
+    load_csv_data(df_reviews, PROCESSED_PATH + "/dataset_reviews.csv")
+    load_csv_data(df_all, PROCESSED_PATH + "/dataset_all.csv")
