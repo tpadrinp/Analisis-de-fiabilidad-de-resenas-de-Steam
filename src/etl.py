@@ -34,9 +34,8 @@ if __name__ == "__main__":
     df_recommendations = extract_csv_data("recommendations.csv")
     df_users = extract_csv_data("users.csv")
     df_games_md = transfomr_json(df_games_md)
-    df_games_full = df_games_md.merge(df_games, on="app_id", how="left")
-    df_reviews = df_recommendations.merge(df_users, on="user_id", how="left")
-    df_all = pd.merge(df_reviews, df_games_full, on="app_id", how="left")
+    df_games_full = df_games.merge(df_games_md, on="app_id", how="left") #Juntamos los metadatos de los juegos con la información de los juegos para obtener un dataframe de los juegos unificados
+    df_reviews = df_recommendations.merge(df_users, on="user_id", how="left") #Juntamos las recomendaciones con la información de los usuarios para obtener un dataframe de las reseñas.
     load_csv_data(df_games_full, PROCESSED_PATH + "/dataset_games_full.csv")
     load_csv_data(df_reviews, PROCESSED_PATH + "/dataset_reviews.csv")
     load_csv_data(df_all, PROCESSED_PATH + "/dataset_all.csv")
