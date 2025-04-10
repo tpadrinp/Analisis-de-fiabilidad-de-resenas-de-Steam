@@ -16,6 +16,7 @@ df_users["total_helpful"] = df_users["total_helpful"].fillna(0) # Rellenamos los
 df_users["credibility"] = df_users["total_helpful"] / (df_users["reviews"] + 1) # Calculamos la credibilidad dividiendo la columna total_helpful entre la columna reviews + 1 para evitar divisiones por cero
 print("La media de reviews por usuario es: ", df_users["reviews"].mean()) # Mostramos la media de reviews por usuario
 df_trusted_users = df_users[df_users["reviews"] >= 3] # Filtrar usuarios con al menos 3 reseñas publicadas
+print("La media de credibilidad de los usuarios es: ", df_trusted_users["credibility"].mean()) # Mostramos la media de credibilidad de los usuarios
 
 # Mostrar resumen
 print("Usuarios con al menos 3 reviews:")
