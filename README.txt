@@ -46,7 +46,7 @@ Estructura del Proyecto
 ------------------------
 La estructura del proyecto es la siguiente:
 
-An-lisis-de-fiabilidad-de-rese-as-de-Steam/
+Analisis-de-fiabilidad-de-resenas-de-Steam/
 ├── data/               # Datos utilizados para el análisis
 ├── notebooks/          # Jupyter Notebooks con análisis exploratorios
 ├── src/                # Código fuente del proyecto
